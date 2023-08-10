@@ -16,7 +16,8 @@ class ResultActivity : AppCompatActivity() {
         val tvResultado : TextView = findViewById(R.id.txtResult)
         val resultado = intent.getFloatExtra("EXTRA_RESULTADO", 0.1f)
 
-        tvResultado.text = resultado.toString()
+        val resultadoFinal = "R$ %.2f".format(resultado)
+        tvResultado.text = resultadoFinal
 
     }
 

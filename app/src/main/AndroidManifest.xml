@@ -12,6 +12,15 @@
         android:theme="@style/Theme.ConsumoCombustivel"
         tools:targetApi="31">
         <activity
+            android:name=".CompararActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+        <activity
             android:name=".ResultActivity"
             android:exported="false" />
         <activity
