@@ -1,74 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
+    android:background="@color/yellowOctane"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cálculo do Combustível"
         android:layout_centerHorizontal="true"
-        android:textSize= "24sp" />
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Calcule seu gasto"
+        android:textColor="@color/blackOctane70"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtDistancia"
-        android:layout_below="@+id/txtTitulo"
+        android:textColor="@color/blackOctane70"
+        android:fontFamily="@font/poppins_semibold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Distância Percorrida"
-        android:layout_marginTop="16dp"
-        android:textSize= "18sp" />
+        android:layout_below="@+id/txtTitulo"
+        android:layout_marginTop="20dp"
+        android:text="Distância Percorrida (Km)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
+
 
     <EditText
-        android:id="@+id/edtKm"
-        android:layout_below="@id/txtDistancia"
+        android:id="@+id/edtDistancia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtDistancia"
         android:inputType="numberDecimal"
         android:maxLength="6"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtDistancia" />
 
     <TextView
         android:id="@+id/txtConsumo"
-        android:layout_below="@+id/edtKm"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
         android:layout_height="wrap_content"
-        android:text="Consumo Médio do Veículo(Km/l)?"
-        android:layout_marginTop="16dp"
-        android:textSize= "18sp" />
+        android:layout_marginTop="20dp"
+        android:textColor="@color/blackOctane70"
+        android:text="Consumo Médio do Veículo (Km/l)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtDistancia" />
 
     <EditText
-        android:id="@+id/edtRendimento"
-        android:layout_below="@id/txtConsumo"
+        android:id="@+id/edtConsumo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtConsumo"
+        android:layout_marginTop="15dp"
         android:inputType="numberDecimal"
         android:maxLength="6"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConsumo" />
 
     <TextView
-        android:id="@+id/txtCombustivel"
-        android:layout_below="@id/edtRendimento"
+        android:id="@+id/txtPrecoLitro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/blackOctane70"
+        android:layout_below="@id/edtConsumo"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Preço por Litro"
-        android:layout_marginTop="16dp"
-        android:textSize= "18sp" />
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtConsumo" />
 
     <EditText
-        android:id="@+id/edtLitros"
-        android:layout_below="@id/txtCombustivel"
+        android:id="@+id/edtPrecoLitro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/txtPrecoLitro"
+        android:layout_marginTop="15dp"
         android:inputType="numberDecimal"
         android:maxLength="6"
-        android:textSize="20sp" />
-
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecoLitro" />
 
     <Button
         android:id="@+id/botaoCalcular"
@@ -76,6 +111,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Calcular"/>
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/blueOctane"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Calcular"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPrecoLitro" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btnAlcoolGasolina"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/blueOctane"
+        android:textSize="15sp"
+        android:text="Álcool ou Gasolina?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botaoCalcular" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

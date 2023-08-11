@@ -13,32 +13,46 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnCalcular : Button =findViewById(R.id.botaoCalcular)
-        val edtDistancia : EditText = findViewById(R.id.edtKm)
-        val edtValorLitros : EditText = findViewById(R.id.edtLitros)
-        val edtRendimentoCarro : EditText = findViewById(R.id.edtRendimento)
+        val btnAlcoolGasolina : Button = findViewById(R.id.btnAlcoolGasolina)
+        val edtDistancia : EditText = findViewById(R.id.edtDistancia)
+        val edtPrecoLitros : EditText = findViewById(R.id.edtPrecoLitro)
+        val edtConsumoMedio : EditText = findViewById(R.id.edtConsumo)
 
         btnCalcular.setOnClickListener{
 
-            val trajetoStr = edtDistancia.text.toString()
-            val rendimentoStr = edtRendimentoCarro.text.toString()
-            val valorCombustivelStr = edtValorLitros.text.toString()
+            val distanciaStr = edtDistancia.text.toString()
+            val consumoStr = edtConsumoMedio.text.toString()
+            val precoLitrosStr = edtPrecoLitros.text.toString()
 
-            if (trajetoStr.isNotEmpty() && rendimentoStr.isNotEmpty() &&
-                valorCombustivelStr.isNotEmpty()) {
-                val trajeto: Float = trajetoStr.toFloat()
-                val rendimento: Float = rendimentoStr.toString().toFloat()
-                val valorCombustível: Float = valorCombustivelStr.toFloat()
-                val resultado: Float = (trajeto / rendimento) * valorCombustível
+            if (distanciaStr.isNotEmpty() &&
+                consumoStr.isNotEmpty() &&
+                precoLitrosStr.isNotEmpty()) {
+
+                val distancia: Float = distanciaStr.toFloat()
+                val consumo: Float = consumoStr.toFloat()
+                val precoLitro: Float = precoLitrosStr.toFloat()
+
+                val resultado: Float = (distancia / consumo) * precoLitro
 
                 val intent = Intent(this, ResultActivity::class.java)
+
                     .apply {
                         putExtra("EXTRA_RESULTADO", resultado)
                     }
                 startActivity(intent)
-            } else {
-                Toast.makeText(this, "Preencher todos os campos.", Toast.LENGTH_LONG).show()
+            } else
+            {
+                Toast.makeText(this,
+                    "Preencha todos os campos.",
+                    Toast.LENGTH_LONG).show()
             }
 
+        }
+
+        val botaoAlcoolGasolina : Button = findViewById(R.id.btnAlcoolGasolina)
+        botaoAlcoolGasolina.setOnClickListener {
+            val intent = Intent(this, CompararActivity::class.java)
+            startActivity(intent)
         }
 
     }
